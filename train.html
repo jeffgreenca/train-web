@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Train Control</title>
+		<script>
+			async function setTrain(speed) {
+				// throws a cors error, but oh well
+				const response = await fetch("http://10.0.1.132:3000/train/" + encodeURIComponent(speed), {
+					method: 'POST',
+				});
+				// document.title = response.status;
+			}
+		</script>
+		<style>
+			body { font-size: 2em; 
+				background-color: black;
+					color: white;
+			}
+			.content {
+				max-width: 500px;
+				margin: auto;
+				text-align: center;
+			}
+			button { font-size: 2em; color: white; margin: 10px; width: 350px;}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<p><button style="background-color: #404000;" onclick="setTrain('20');">snail</button></p>
+			<p><button style="background-color: #006000;" onclick="setTrain('40');">cruisin'</button></p>
+			<p><button style="background-color: #000060;" onclick="setTrain('80');">fast</button></p>
+			<p><button style="background-color: #400080;" onclick="setTrain('99');">too fast</button></p>
+			<p><button style="background-color: #800000;" onclick="setTrain('00');">stop!!</button></p>
+		</div>
+	</body>
+</html>
+
